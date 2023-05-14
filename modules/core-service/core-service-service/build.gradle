@@ -1,0 +1,11 @@
+dependencies {
+	compile project(":modules:core-service:core-service-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+}
+
+buildService {
+	apiDir = "../core-service-api/src/main/java"
+}
+
+group = "si.bintegra"

@@ -1,0 +1,10 @@
+Bundle-Name: core-service-api
+Bundle-SymbolicName: si.bintegra.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	si.bintegra.exception,\
+	si.bintegra.model,\
+	si.bintegra.service,\
+	si.bintegra.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../core-service-service/service.xml
