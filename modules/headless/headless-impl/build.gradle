@@ -1,5 +1,6 @@
 dependencies {
 	compile project(":modules:headless:headless-api")
+	compile project(":modules:core-service:core-service-api")
 
 	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
 
