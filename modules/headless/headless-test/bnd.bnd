@@ -1,0 +1,5 @@
+Bundle-Name: headless-test
+Bundle-SymbolicName: si.bintegra.portal.test
+Bundle-Version: 1.0.0
+-includeresource: si.bintegra.portal.client.jar=../headless-client/build/libs/si.bintegra.portal.client-1.0.0.jar;lib:=true
+-provider-policy: ${replacestring;${range;[==,==]};.*,(.*)];$1}

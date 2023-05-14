@@ -1,0 +1,3 @@
+Bundle-Name: headless-client
+Bundle-SymbolicName: si.bintegra.portal.client
+Bundle-Version: 1.0.0

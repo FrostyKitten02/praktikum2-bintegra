@@ -1,0 +1,9 @@
+apiDir: "../headless-api/src/main/java"
+apiPackagePath: "si.bintegra.portal"
+application:
+    baseURI: "/headless"
+    className: "HeadlessApplication"
+    name: "Headless"
+author: "Alen"
+clientDir: "../headless-client/src/main/java"
+testDir: "../headless-test/src/testIntegration/java"

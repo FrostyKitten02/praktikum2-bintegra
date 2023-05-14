@@ -1,0 +1,6 @@
+Bundle-Name: headless-api
+Bundle-SymbolicName: si.bintegra.portal.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	si.bintegra.portal.dto.v1_0,\
+	si.bintegra.portal.resource.v1_0
