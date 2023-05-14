@@ -8,4 +8,5 @@ dependencies {
 	testIntegrationCompile group: "com.liferay.portal", name: "release.dxp.api"
 	testIntegrationCompile project(":modules:headless:headless-api")
 	testIntegrationCompile project(":modules:headless:headless-client")
+	testCompile group: 'junit', name: 'junit-dep', version: '4.10'
 }
