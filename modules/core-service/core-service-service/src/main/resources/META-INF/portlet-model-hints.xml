@@ -22,4 +22,28 @@
 		<field name="field4" type="Date" />
 		<field name="field5" type="String" />
 	</model>
+	<model name="si.bintegra.model.Offer">
+		<field name="uuid" type="String" />
+		<field name="id" type="long" />
+		<field name="type" type="String" />
+		<field name="title" type="String" />
+		<field name="active" type="Boolean" />
+	</model>
+	<model name="si.bintegra.model.OfferOption">
+		<field name="uuid" type="String" />
+		<field name="id" type="long" />
+		<field name="offerId" type="long" />
+		<field name="fullDuration" type="long" />
+		<field name="discountDuration" type="long" />
+		<field name="discountPrice" type="long" />
+		<field name="fullPrice" type="long" />
+		<field name="active" type="Boolean" />
+	</model>
+	<model name="si.bintegra.model.Subscription">
+		<field name="uuid" type="String" />
+		<field name="id" type="long" />
+		<field name="offerOptionId" type="long" />
+		<field name="fromDate" type="long" />
+		<field name="userId" type="long" />
+	</model>
 </model-hints>

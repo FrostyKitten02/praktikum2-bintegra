@@ -38,6 +38,9 @@ import si.bintegra.service.CustomerServiceService;
 import si.bintegra.service.CustomerServiceServiceUtil;
 import si.bintegra.service.persistence.CustomerServicePersistence;
 import si.bintegra.service.persistence.FooPersistence;
+import si.bintegra.service.persistence.OfferOptionPersistence;
+import si.bintegra.service.persistence.OfferPersistence;
+import si.bintegra.service.persistence.SubscriptionPersistence;
 
 /**
  * Provides the base implementation for the customer service remote service.
@@ -147,6 +150,15 @@ public abstract class CustomerServiceServiceBaseImpl
 
 	@Reference
 	protected FooPersistence fooPersistence;
+
+	@Reference
+	protected OfferPersistence offerPersistence;
+
+	@Reference
+	protected OfferOptionPersistence offerOptionPersistence;
+
+	@Reference
+	protected SubscriptionPersistence subscriptionPersistence;
 
 	@Reference
 	protected com.liferay.counter.kernel.service.CounterLocalService

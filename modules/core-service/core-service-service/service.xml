@@ -47,6 +47,7 @@
 		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
 		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
 	</entity>
+
 	<entity local-service="true" name="CustomerService" remote-service="true" uuid="true">
 		<column name="id" primary="true" type="long" />
 
@@ -60,5 +61,61 @@
 		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
 		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
 	</entity>
+
+	<entity local-service="true" name="Offer" remote-service="true" uuid="true">
+		<column name="id" primary="true" type="long" />
+
+		<!--String from enum!!!-->
+		<column name="type" type="String" />
+		<column name="title" type="String" />
+		<!--TODO define all fields!!!-->
+
+		<column name="active" type="Boolean" />
+
+		<order by="asc">
+			<order-column name="title" />
+		</order>
+
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
+	</entity>
+
+	<entity local-service="true" name="OfferOption" remote-service="true" uuid="true">
+		<column name="id" primary="true" type="long" />
+
+		<column name="offerId" type="long" />
+
+		<column name="fullDuration" type="long" />
+		<column name="discountDuration" type="long" />
+
+		<column name="discountPrice" type="long" />
+		<column name="fullPrice" type="long" />
+
+		<column name="active" type="Boolean" />
+
+		<order by="asc">
+			<order-column name="id" />
+		</order>
+
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
+	</entity>
+
+	<entity local-service="true" name="Subscription" remote-service="true" uuid="true">
+		<column name="id" primary="true" type="long" />
+
+		<column name="offerOptionId" type="long" />
+		<column name="fromDate" type="long" />
+
+		<column name="userId" type="long" />
+
+		<order by="asc">
+			<order-column name="id" />
+		</order>
+
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
+	</entity>
+
 
 </service-builder>

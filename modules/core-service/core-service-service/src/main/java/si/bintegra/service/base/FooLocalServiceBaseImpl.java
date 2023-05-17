@@ -63,6 +63,9 @@ import si.bintegra.service.FooLocalService;
 import si.bintegra.service.FooLocalServiceUtil;
 import si.bintegra.service.persistence.CustomerServicePersistence;
 import si.bintegra.service.persistence.FooPersistence;
+import si.bintegra.service.persistence.OfferOptionPersistence;
+import si.bintegra.service.persistence.OfferPersistence;
+import si.bintegra.service.persistence.SubscriptionPersistence;
 
 /**
  * Provides the base implementation for the foo local service.
@@ -589,6 +592,15 @@ public abstract class FooLocalServiceBaseImpl
 
 	@Reference
 	protected FooPersistence fooPersistence;
+
+	@Reference
+	protected OfferPersistence offerPersistence;
+
+	@Reference
+	protected OfferOptionPersistence offerOptionPersistence;
+
+	@Reference
+	protected SubscriptionPersistence subscriptionPersistence;
 
 	@Reference
 	protected com.liferay.counter.kernel.service.CounterLocalService
