@@ -47,4 +47,18 @@
 		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
 		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
 	</entity>
+	<entity local-service="true" name="CustomerService" remote-service="true" uuid="true">
+		<column name="id" primary="true" type="long" />
+
+		<column name="title" type="String" />
+		<column name="price" type="double" />
+
+		<order by="asc">
+			<order-column name="title" />
+		</order>
+
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
+	</entity>
+
 </service-builder>

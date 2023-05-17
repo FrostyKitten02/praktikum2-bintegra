@@ -1,6 +1,12 @@
 <?xml version="1.0"?>
 
 <model-hints>
+	<model name="si.bintegra.model.CustomerService">
+		<field name="uuid" type="String" />
+		<field name="id" type="long" />
+		<field name="title" type="String" />
+		<field name="price" type="double" />
+	</model>
 	<model name="si.bintegra.model.Foo">
 		<field name="uuid" type="String" />
 		<field name="fooId" type="long" />

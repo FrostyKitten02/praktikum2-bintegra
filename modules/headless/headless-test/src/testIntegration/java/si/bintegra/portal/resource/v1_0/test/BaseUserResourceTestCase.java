@@ -504,9 +504,8 @@ public abstract class BaseUserResourceTestCase {
 		sb.append(" ");
 
 		if (entityFieldName.equals("id")) {
-			sb.append(String.valueOf(user.getId()));
-
-			return sb.toString();
+			throw new IllegalArgumentException(
+				"Invalid entity field " + entityFieldName);
 		}
 
 		if (entityFieldName.equals("name")) {
@@ -561,7 +560,7 @@ public abstract class BaseUserResourceTestCase {
 	protected User randomUser() throws Exception {
 		return new User() {
 			{
-				id = RandomTestUtil.randomInt();
+				id = RandomTestUtil.randomLong();
 				name = StringUtil.toLowerCase(RandomTestUtil.randomString());
 			}
 		};

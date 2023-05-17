@@ -12,7 +12,18 @@ components:
             properties:
                 id:
                     type: integer
+                    format: int64
                 name:
+                    type: string
+        ServiceDto:
+            properties:
+                id:
+                    type: integer
+                    format: int64
+                price:
+                    type: number
+                    format: double
+                title:
                     type: string
 paths:
     /test-path:
@@ -30,6 +41,66 @@ paths:
                         application/xml:
                             schema:
                                 $ref: '#/components/schemas/User'
+                        text/plain:
+                            schema:
+                                type: string
+                default:
+                    description: Default error sample response
+    /service/{id}:
+        summary: get service by id
+        get:
+            operationId: getServiceById
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                      type: integer
+                      format: int64
+            summary: returns serviceDto by given id in path
+            responses:
+                '200':
+                    description: service found by id
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ServiceDto'
+                        application/xml:
+                            schema:
+                                $ref: '#/components/schemas/ServiceDto'
+                        text/plain:
+                            schema:
+                                type: string
+                default:
+                    description: Default error sample response
+    /service:
+        summary: add new service
+        post:
+            operationId: addService
+            summary: saves new service
+            requestBody:
+                description: service to be saved
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/ServiceDto'
+                    application/xml:
+                        schema:
+                            $ref: '#/components/schemas/ServiceDto'
+                    text/plain:
+                        schema:
+                            type: string
+            responses:
+                '200':
+                    description: service found by id
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ServiceDto'
+                        application/xml:
+                            schema:
+                                $ref: '#/components/schemas/ServiceDto'
                         text/plain:
                             schema:
                                 type: string

@@ -6,6 +6,8 @@ import com.liferay.portal.kernel.search.Sort;
 import com.liferay.portal.kernel.service.GroupLocalService;
 import com.liferay.portal.kernel.service.RoleLocalService;
 import com.liferay.portal.vulcan.accept.language.AcceptLanguage;
+import com.liferay.portal.vulcan.graphql.annotation.GraphQLField;
+import com.liferay.portal.vulcan.graphql.annotation.GraphQLName;
 
 import java.util.function.BiFunction;
 
@@ -18,7 +20,9 @@ import javax.ws.rs.core.UriInfo;
 
 import org.osgi.service.component.ComponentServiceObjects;
 
+import si.bintegra.portal.dto.v1_0.ServiceDto;
 import si.bintegra.portal.dto.v1_0.User;
+import si.bintegra.portal.resource.v1_0.ServiceDtoResource;
 
 /**
  * @author Alen
@@ -26,6 +30,25 @@ import si.bintegra.portal.dto.v1_0.User;
  */
 @Generated("")
 public class Mutation {
+
+	public static void setServiceDtoResourceComponentServiceObjects(
+		ComponentServiceObjects<ServiceDtoResource>
+			serviceDtoResourceComponentServiceObjects) {
+
+		_serviceDtoResourceComponentServiceObjects =
+			serviceDtoResourceComponentServiceObjects;
+	}
+
+	@GraphQLField
+	public ServiceDto addService(
+			@GraphQLName("serviceDto") ServiceDto serviceDto)
+		throws Exception {
+
+		return _applyComponentServiceObjects(
+			_serviceDtoResourceComponentServiceObjects,
+			this::_populateResourceContext,
+			serviceDtoResource -> serviceDtoResource.addService(serviceDto));
+	}
 
 	private <T, R, E1 extends Throwable, E2 extends Throwable> R
 			_applyComponentServiceObjects(
@@ -64,6 +87,22 @@ public class Mutation {
 			componentServiceObjects.ungetService(resource);
 		}
 	}
+
+	private void _populateResourceContext(ServiceDtoResource serviceDtoResource)
+		throws Exception {
+
+		serviceDtoResource.setContextAcceptLanguage(_acceptLanguage);
+		serviceDtoResource.setContextCompany(_company);
+		serviceDtoResource.setContextHttpServletRequest(_httpServletRequest);
+		serviceDtoResource.setContextHttpServletResponse(_httpServletResponse);
+		serviceDtoResource.setContextUriInfo(_uriInfo);
+		serviceDtoResource.setContextUser(_user);
+		serviceDtoResource.setGroupLocalService(_groupLocalService);
+		serviceDtoResource.setRoleLocalService(_roleLocalService);
+	}
+
+	private static ComponentServiceObjects<ServiceDtoResource>
+		_serviceDtoResourceComponentServiceObjects;
 
 	private AcceptLanguage _acceptLanguage;
 	private com.liferay.portal.kernel.model.Company _company;

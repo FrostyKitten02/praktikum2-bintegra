@@ -23,7 +23,9 @@ import javax.ws.rs.core.UriInfo;
 
 import org.osgi.service.component.ComponentServiceObjects;
 
+import si.bintegra.portal.dto.v1_0.ServiceDto;
 import si.bintegra.portal.dto.v1_0.User;
+import si.bintegra.portal.resource.v1_0.ServiceDtoResource;
 import si.bintegra.portal.resource.v1_0.UserResource;
 
 /**
@@ -33,12 +35,33 @@ import si.bintegra.portal.resource.v1_0.UserResource;
 @Generated("")
 public class Query {
 
+	public static void setServiceDtoResourceComponentServiceObjects(
+		ComponentServiceObjects<ServiceDtoResource>
+			serviceDtoResourceComponentServiceObjects) {
+
+		_serviceDtoResourceComponentServiceObjects =
+			serviceDtoResourceComponentServiceObjects;
+	}
+
 	public static void setUserResourceComponentServiceObjects(
 		ComponentServiceObjects<UserResource>
 			userResourceComponentServiceObjects) {
 
 		_userResourceComponentServiceObjects =
 			userResourceComponentServiceObjects;
+	}
+
+	/**
+	 * Invoke this method with the command line:
+	 *
+	 * curl -H 'Content-Type: text/plain; charset=utf-8' -X 'POST' 'http://localhost:8080/o/graphql' -d $'{"query": "query {serviceById(id: ___){id, price, title}}"}' -u 'test@liferay.com:test'
+	 */
+	@GraphQLField
+	public ServiceDto serviceById(@GraphQLName("id") Long id) throws Exception {
+		return _applyComponentServiceObjects(
+			_serviceDtoResourceComponentServiceObjects,
+			this::_populateResourceContext,
+			serviceDtoResource -> serviceDtoResource.getServiceById(id));
 	}
 
 	/**
@@ -52,6 +75,39 @@ public class Query {
 			_userResourceComponentServiceObjects,
 			this::_populateResourceContext,
 			userResource -> userResource.getTestPath());
+	}
+
+	@GraphQLName("ServiceDtoPage")
+	public class ServiceDtoPage {
+
+		public ServiceDtoPage(Page serviceDtoPage) {
+			actions = serviceDtoPage.getActions();
+
+			items = serviceDtoPage.getItems();
+			lastPage = serviceDtoPage.getLastPage();
+			page = serviceDtoPage.getPage();
+			pageSize = serviceDtoPage.getPageSize();
+			totalCount = serviceDtoPage.getTotalCount();
+		}
+
+		@GraphQLField
+		protected Map<String, Map> actions;
+
+		@GraphQLField
+		protected java.util.Collection<ServiceDto> items;
+
+		@GraphQLField
+		protected long lastPage;
+
+		@GraphQLField
+		protected long page;
+
+		@GraphQLField
+		protected long pageSize;
+
+		@GraphQLField
+		protected long totalCount;
+
 	}
 
 	@GraphQLName("UserPage")
@@ -106,6 +162,19 @@ public class Query {
 		}
 	}
 
+	private void _populateResourceContext(ServiceDtoResource serviceDtoResource)
+		throws Exception {
+
+		serviceDtoResource.setContextAcceptLanguage(_acceptLanguage);
+		serviceDtoResource.setContextCompany(_company);
+		serviceDtoResource.setContextHttpServletRequest(_httpServletRequest);
+		serviceDtoResource.setContextHttpServletResponse(_httpServletResponse);
+		serviceDtoResource.setContextUriInfo(_uriInfo);
+		serviceDtoResource.setContextUser(_user);
+		serviceDtoResource.setGroupLocalService(_groupLocalService);
+		serviceDtoResource.setRoleLocalService(_roleLocalService);
+	}
+
 	private void _populateResourceContext(UserResource userResource)
 		throws Exception {
 
@@ -119,6 +188,8 @@ public class Query {
 		userResource.setRoleLocalService(_roleLocalService);
 	}
 
+	private static ComponentServiceObjects<ServiceDtoResource>
+		_serviceDtoResourceComponentServiceObjects;
 	private static ComponentServiceObjects<UserResource>
 		_userResourceComponentServiceObjects;
 

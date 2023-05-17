@@ -17,7 +17,9 @@ import org.osgi.service.component.annotations.ReferenceScope;
 
 import si.bintegra.portal.internal.graphql.mutation.v1_0.Mutation;
 import si.bintegra.portal.internal.graphql.query.v1_0.Query;
+import si.bintegra.portal.internal.resource.v1_0.ServiceDtoResourceImpl;
 import si.bintegra.portal.internal.resource.v1_0.UserResourceImpl;
+import si.bintegra.portal.resource.v1_0.ServiceDtoResource;
 import si.bintegra.portal.resource.v1_0.UserResource;
 
 /**
@@ -30,6 +32,11 @@ public class ServletDataImpl implements ServletData {
 
 	@Activate
 	public void activate(BundleContext bundleContext) {
+		Mutation.setServiceDtoResourceComponentServiceObjects(
+			_serviceDtoResourceComponentServiceObjects);
+
+		Query.setServiceDtoResourceComponentServiceObjects(
+			_serviceDtoResourceComponentServiceObjects);
 		Query.setUserResourceComponentServiceObjects(
 			_userResourceComponentServiceObjects);
 	}
@@ -69,11 +76,24 @@ public class ServletDataImpl implements ServletData {
 			new HashMap<String, ObjectValuePair<Class<?>, String>>() {
 				{
 					put(
+						"mutation#addService",
+						new ObjectValuePair<>(
+							ServiceDtoResourceImpl.class, "addService"));
+
+					put(
+						"query#serviceById",
+						new ObjectValuePair<>(
+							ServiceDtoResourceImpl.class, "getServiceById"));
+					put(
 						"query#testPath",
 						new ObjectValuePair<>(
 							UserResourceImpl.class, "getTestPath"));
 				}
 			};
+
+	@Reference(scope = ReferenceScope.PROTOTYPE_REQUIRED)
+	private ComponentServiceObjects<ServiceDtoResource>
+		_serviceDtoResourceComponentServiceObjects;
 
 	@Reference(scope = ReferenceScope.PROTOTYPE_REQUIRED)
 	private ComponentServiceObjects<UserResource>

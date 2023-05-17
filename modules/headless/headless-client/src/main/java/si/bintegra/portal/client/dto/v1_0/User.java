@@ -20,15 +20,15 @@ public class User implements Cloneable, Serializable {
 		return UserSerDes.toDTO(json);
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public void setId(UnsafeSupplier<Integer, Exception> idUnsafeSupplier) {
+	public void setId(UnsafeSupplier<Long, Exception> idUnsafeSupplier) {
 		try {
 			id = idUnsafeSupplier.get();
 		}
@@ -37,7 +37,7 @@ public class User implements Cloneable, Serializable {
 		}
 	}
 
-	protected Integer id;
+	protected Long id;
 
 	public String getName() {
 		return name;

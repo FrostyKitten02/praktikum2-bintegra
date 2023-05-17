@@ -117,7 +117,7 @@ public class UserSerDes {
 
 			if (Objects.equals(jsonParserFieldName, "id")) {
 				if (jsonParserFieldValue != null) {
-					user.setId(Integer.valueOf((String)jsonParserFieldValue));
+					user.setId(Long.valueOf((String)jsonParserFieldValue));
 				}
 			}
 			else if (Objects.equals(jsonParserFieldName, "name")) {

@@ -43,16 +43,16 @@ public class User implements Serializable {
 	}
 
 	@Schema
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
 	@JsonIgnore
-	public void setId(UnsafeSupplier<Integer, Exception> idUnsafeSupplier) {
+	public void setId(UnsafeSupplier<Long, Exception> idUnsafeSupplier) {
 		try {
 			id = idUnsafeSupplier.get();
 		}
@@ -66,7 +66,7 @@ public class User implements Serializable {
 
 	@GraphQLField
 	@JsonProperty(access = JsonProperty.Access.READ_WRITE)
-	protected Integer id;
+	protected Long id;
 
 	@Schema
 	public String getName() {

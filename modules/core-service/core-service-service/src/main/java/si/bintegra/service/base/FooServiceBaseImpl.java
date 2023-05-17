@@ -36,6 +36,7 @@ import org.osgi.service.component.annotations.Reference;
 import si.bintegra.model.Foo;
 import si.bintegra.service.FooService;
 import si.bintegra.service.FooServiceUtil;
+import si.bintegra.service.persistence.CustomerServicePersistence;
 import si.bintegra.service.persistence.FooPersistence;
 
 /**
@@ -129,6 +130,9 @@ public abstract class FooServiceBaseImpl
 			throw new RuntimeException(reflectiveOperationException);
 		}
 	}
+
+	@Reference
+	protected CustomerServicePersistence customerServicePersistence;
 
 	@Reference
 	protected si.bintegra.service.FooLocalService fooLocalService;

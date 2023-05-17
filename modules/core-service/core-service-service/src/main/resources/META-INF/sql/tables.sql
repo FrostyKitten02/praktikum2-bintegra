@@ -1,3 +1,10 @@
+create table FOO_CustomerService (
+	uuid_ VARCHAR(75) null,
+	id_ LONG not null primary key,
+	title VARCHAR(75) null,
+	price DOUBLE
+);
+
 create table FOO_Foo (
 	uuid_ VARCHAR(75) null,
 	fooId LONG not null primary key,
