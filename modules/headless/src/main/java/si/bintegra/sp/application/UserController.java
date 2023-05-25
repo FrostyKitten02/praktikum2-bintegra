@@ -1,8 +1,11 @@
 package si.bintegra.sp.application;
 
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ServiceScope;
 import si.bintegra.sp.dto.UserDto;
+import si.bintegra.sp.service.FooLocalService;
+import si.bintegra.sp.service.FooLocalServiceUtil;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -18,6 +21,11 @@ import javax.ws.rs.core.Application;
 @Produces("application/json")
 public class UserController extends Application {
 
+//    private FooLocalService fooLocalService;
+    @Reference
+    private FooLocalService fooLocalService;
+//    @Reference
+//    private FooLocalServiceUtil fooLocalServiceUtil;
     @GET
     public UserDto getCurrentUser() {
         UserDto userDto = new UserDto();

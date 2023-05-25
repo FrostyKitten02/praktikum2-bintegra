@@ -8,6 +8,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<modules>
 		<module>headless</module>
+		<module>core</module>
 	</modules>
 	<parent>
 		<groupId>samopostrezni.portal</groupId>

@@ -7,8 +7,9 @@
     <version>1.0.0</version>
   </parent>
 	<groupId>si.bintegra.sp</groupId>
-	<artifactId>headless</artifactId>
+	<artifactId>core</artifactId>
 	<version>1.0.0</version>
+	<packaging>pom</packaging>
 	<profiles>
 		<profile>
 			<id>standalone</id>
@@ -61,30 +62,6 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-	<dependencies>
-		<dependency>
-			<groupId>com.liferay.portal</groupId>
-			<artifactId>release.portal.api</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.osgi</groupId>
-			<artifactId>org.osgi.service.jaxrs</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.26</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>si.bintegra.sp</groupId>
-			<artifactId>core-api</artifactId>
-			<version>1.0.0</version>
-		</dependency>
-	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -132,4 +109,8 @@
 			</plugin>
 		</plugins>
 	</build>
+	<modules>
+		<module>core-api</module>
+		<module>core-service</module>
+	</modules>
 </project>
